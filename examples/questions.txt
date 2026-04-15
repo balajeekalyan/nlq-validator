@@ -1,0 +1,14 @@
+What is right join?
+What is left join?
+What is outer join?
+What is inner join?
+How do I write queries with aggregate functions?
+What is group by and how it used?
+What is a primary key?
+What is a foreign key?
+How do I use indexes to optimize queries?
+What are indexes in a database table?
+How do I optimize a slow SQL query?
+How do I optimize a JOIN query?
+What is a foreign key constraint?
+How do I create an index on a table?
