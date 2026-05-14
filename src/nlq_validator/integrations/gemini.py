@@ -12,7 +12,8 @@ class GeminiIntegration(BaseLLMIntegration):
             import google.generativeai  # noqa: F401
         except ImportError:
             raise ImportError(
-                "google-generativeai package is required. Install it with: pip install 'nlq-validator[gemini]'"
+                "google-generativeai package is required. "
+                "Install it with: pip install 'nlq-validator[gemini]'"
             )
         self._api_key = api_key or os.environ.get("GEMINI_API_KEY")
         self._model = model or os.environ.get("GEMINI_MODEL")

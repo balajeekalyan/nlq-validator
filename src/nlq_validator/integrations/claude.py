@@ -11,7 +11,8 @@ class ClaudeIntegration(BaseLLMIntegration):
             import anthropic  # noqa: F401
         except ImportError:
             raise ImportError(
-                "anthropic package is required. Install it with: pip install 'nlq-validator[anthropic]'"
+                "anthropic package is required. "
+                "Install it with: pip install 'nlq-validator[anthropic]'"
             )
         self._api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
         self._model = model or os.environ.get("ANTHROPIC_MODEL")

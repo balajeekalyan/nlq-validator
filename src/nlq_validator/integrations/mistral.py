@@ -12,7 +12,8 @@ class MistralIntegration(BaseLLMIntegration):
             from mistralai import Mistral  # noqa: F401
         except ImportError:
             raise ImportError(
-                "mistralai package is required. Install it with: pip install 'nlq-validator[mistral]'"
+                "mistralai package is required. "
+                "Install it with: pip install 'nlq-validator[mistral]'"
             )
         self._api_key = api_key or os.environ.get("MISTRAL_API_KEY")
         self._model = model or os.environ.get("MISTRAL_MODEL")

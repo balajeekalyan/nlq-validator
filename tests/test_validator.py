@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from nlq_validator import NLQValidator, ValidationResult
+from nlq_validator import NLQValidator
 from nlq_validator.loader import FileLoader
 from nlq_validator.model import TopicModel
 from nlq_validator.persistence import load_model, save_model
@@ -169,7 +169,9 @@ class TestNLQValidator:
         assert result.is_valid is False
         assert result.errors
 
-    def test_save_and_load_classmethod(self, trained_validator: NLQValidator, tmp_path: Path) -> None:
+    def test_save_and_load_classmethod(
+        self, trained_validator: NLQValidator, tmp_path: Path
+    ) -> None:
         path = tmp_path / "model.pkl"
         trained_validator.save(path)
         loaded = NLQValidator.load(path)
@@ -380,21 +382,24 @@ class TestApplyCalibration:
 class TestAsync:
     def test_generate_and_save_async_signature(self) -> None:
         import inspect
+
         from nlq_validator.integrations.base import BaseLLMIntegration
         assert inspect.iscoroutinefunction(BaseLLMIntegration.generate_and_save_async)
 
     def test_generate_questions_async_is_abstract(self) -> None:
         import inspect
+
         from nlq_validator.integrations.base import BaseLLMIntegration
         assert inspect.iscoroutinefunction(BaseLLMIntegration.generate_questions_async)
 
     def test_all_integrations_implement_async(self) -> None:
         import inspect
-        from nlq_validator.integrations.claude import ClaudeIntegration
+
         from nlq_validator.integrations.chatgpt import ChatGPTIntegration
+        from nlq_validator.integrations.claude import ClaudeIntegration
         from nlq_validator.integrations.gemini import GeminiIntegration
-        from nlq_validator.integrations.mistral import MistralIntegration
         from nlq_validator.integrations.grok import GrokIntegration
+        from nlq_validator.integrations.mistral import MistralIntegration
         from nlq_validator.integrations.perplexity import PerplexityIntegration
 
         for cls in [ClaudeIntegration, ChatGPTIntegration, GeminiIntegration,

@@ -19,12 +19,18 @@ class FileLoader:
         else:
             raise ValueError(f"Unsupported file extension '{suffix}'. Use .txt, .csv, or .json.")
         if len(examples) < 2:
-            raise ValueError(f"Training file must contain at least 2 examples, got {len(examples)}.")
+            raise ValueError(
+                f"Training file must contain at least 2 examples, got {len(examples)}."
+            )
         return examples
 
     @staticmethod
     def _load_txt(path: Path) -> list[str]:
-        return [line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        return [
+            line.strip()
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
 
     @staticmethod
     def _load_csv(path: Path) -> list[str]:
@@ -35,7 +41,11 @@ class FileLoader:
         if not rows:
             return examples
         # Skip header if first cell doesn't look like a sample query
-        start = 1 if rows and rows[0] and not rows[0][0].strip().endswith("?") and len(rows) > 1 and rows[0][0].strip().replace(" ", "").isalpha() else 0
+        first = rows[0][0].strip() if rows and rows[0] else ""
+        looks_like_header = (
+            first and not first.endswith("?") and len(rows) > 1 and first.replace(" ", "").isalpha()
+        )
+        start = 1 if looks_like_header else 0
         for row in rows[start:]:
             if row and row[0].strip():
                 examples.append(row[0].strip())
@@ -57,5 +67,7 @@ class FileLoader:
                         examples.append(item[key].strip())
                         break
             else:
-                raise ValueError(f"JSON list items must be strings or objects, got {type(item).__name__}.")
+                raise ValueError(
+                    f"JSON list items must be strings or objects, got {type(item).__name__}."
+                )
         return examples

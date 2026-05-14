@@ -179,7 +179,9 @@ class NLQValidator:
         if s < self._threshold:
             return ValidationResult(
                 is_valid=False,
-                errors=[f"Query appears off-topic (score={s:.3f}, threshold={self._threshold:.3f})"],
+                errors=[
+                    f"Query appears off-topic (score={s:.3f}, threshold={self._threshold:.3f})"
+                ],
             )
         return ValidationResult(is_valid=True)
 
