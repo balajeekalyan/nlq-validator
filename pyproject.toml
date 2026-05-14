@@ -5,11 +5,41 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nlq-validator"
 version = "0.1.0"
-description = "Natural Language Query validator"
+description = "Lightweight Natural Language Query validator — keep your LLM assistant on-topic"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Balajee K", email = "kalyanasundarambalajee@gmail.com" }]
 requires-python = ">=3.10"
+keywords = [
+    "nlp",
+    "nlq",
+    "validator",
+    "llm",
+    "natural-language",
+    "query-validation",
+    "topic-model",
+    "tfidf",
+    "embeddings",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
 dependencies = [
     "scikit-learn>=1.4",
 ]
+
+[project.urls]
+Homepage = "https://github.com/balajeekalyan/nlq-validator"
+Repository = "https://github.com/balajeekalyan/nlq-validator"
+"Bug Tracker" = "https://github.com/balajeekalyan/nlq-validator/issues"
 
 [project.optional-dependencies]
 dev       = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.4"]
@@ -17,7 +47,7 @@ openai    = ["openai>=1.0"]
 anthropic = ["anthropic>=0.25"]
 gemini    = ["google-generativeai>=0.8"]
 mistral   = ["mistralai>=1.0"]
-all-llm    = ["openai>=1.0", "anthropic>=0.25", "google-generativeai>=0.8", "mistralai>=1.0"]
+all-llm   = ["openai>=1.0", "anthropic>=0.25", "google-generativeai>=0.8", "mistralai>=1.0"]
 embeddings = ["sentence-transformers>=2.7"]
 
 [tool.setuptools.packages.find]

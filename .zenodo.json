@@ -1,0 +1,37 @@
+{
+  "title": "nlq-validator: Lightweight Natural Language Query Validator",
+  "description": "A lightweight Natural Language Query (NLQ) validator that keeps LLM assistants on-topic. Train it on example questions and it will accept in-domain queries while rejecting off-topic ones using TF-IDF scoring or semantic embeddings. Supports incremental retraining, threshold calibration, and automatic training-data generation via Claude, ChatGPT, Gemini, Mistral, Grok, and Perplexity.",
+  "upload_type": "software",
+  "license": "MIT",
+  "version": "0.1.0",
+  "keywords": [
+    "natural language processing",
+    "query validation",
+    "large language models",
+    "topic modeling",
+    "TF-IDF",
+    "sentence embeddings",
+    "NLP",
+    "Python"
+  ],
+  "creators": [
+    {
+      "name": "Kalyanasundaram, Balajee",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0007-7292-2417"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/balajeekalyan/nlq-validator",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://pypi.org/project/nlq-validator/",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    }
+  ],
+  "access_right": "open"
+}

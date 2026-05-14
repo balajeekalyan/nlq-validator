@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it using the metadata below."
+type: software
+title: "nlq-validator: Lightweight Natural Language Query Validator"
+abstract: >
+  A lightweight Natural Language Query (NLQ) validator that keeps LLM assistants
+  on-topic. Train it on example questions and it will accept in-domain queries
+  while rejecting off-topic ones using TF-IDF scoring or semantic embeddings.
+  Supports incremental retraining, threshold calibration, and automatic
+  training-data generation via Claude, ChatGPT, Gemini, Mistral, Grok, and
+  Perplexity.
+authors:
+  - given-names: Balajee
+    family-names: Kalyanasundaram
+    email: kalyanasundarambalajee@gmail.com
+version: "0.1.0"
+date-released: "2026-05-13"
+license: MIT
+repository-code: "https://github.com/balajeekalyan/nlq-validator"
+url: "https://pypi.org/project/nlq-validator/"
+keywords:
+  - natural language processing
+  - query validation
+  - large language models
+  - topic modeling
+  - TF-IDF
+  - sentence embeddings
+  - NLP
+  - Python
